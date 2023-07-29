@@ -9,12 +9,15 @@
         <outputRelativeToContentRoot value="true" />
         <module name="common" />
         <module name="mall" />
+        <module name="service-gateway" />
         <module name="service-user" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="common" target="1.8" />
+      <module name="gateway" target="1.8" />
       <module name="mall" target="1.8" />
+      <module name="service-gateway" target="1.8" />
       <module name="service-user" target="1.8" />
     </bytecodeTargetLevel>
   </component>
@@ -22,6 +25,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="common" options="-parameters" />
       <module name="mall" options="-parameters" />
+      <module name="service-gateway" options="-parameters" />
       <module name="service-user" options="-parameters" />
     </option>
   </component>

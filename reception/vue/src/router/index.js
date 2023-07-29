@@ -11,6 +11,7 @@ Vue.use(ElementUI)
 Vue.prototype.axios = axios
 
 export default new Router({
+  mode: 'history',
   routes: [
     {
       path: '/',

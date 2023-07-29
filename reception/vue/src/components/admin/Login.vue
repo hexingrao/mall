@@ -1,7 +1,7 @@
 <template>
   <div>
     <!--<video id="v1" autoplay loop muted>-->
-    <!--<source src="">-->
+    <!--<source src="../../assets/pai.mp4">-->
     <!--</video>-->
 
     <div class="login-register">
@@ -12,28 +12,30 @@
             <el-form :model="admin" :rules="rules" ref="ruleForm" style="width: 300px; height: 300px">
 
               <el-form-item prop="username">
-                <el-input size="medium" style="margin: 10px 0;" prefix-icon="el-icon-user" v-model="admin.username"
+                <el-input size="medium" clearable style="margin-top: 30px;" prefix-icon="el-icon-user" v-model="admin.username"
                           placeholder="请输入账户"></el-input>
               </el-form-item>
 
               <el-form-item prop="nickname">
-                <el-input size="medium" style="margin: 10px 0;" prefix-icon="el-icon-s-custom" v-model="admin.nickname"
+                <el-input size="medium" clearable style="margin-top: 30px;" prefix-icon="el-icon-s-custom"
+                          v-model="admin.nickname"
                           placeholder="请输入昵称"></el-input>
               </el-form-item>
 
               <el-form-item prop="password">
-                <el-input size="medium" auto-complete="new-password" style="margin: 10px 0;" prefix-icon="el-icon-lock"
+                <el-input size="medium" clearable auto-complete="new-password" style="margin-top: 30px;"
+                          prefix-icon="el-icon-lock"
                           show-password v-model="admin.password" placeholder="请输入密码"></el-input>
               </el-form-item>
 
               <el-form-item prop="password">
-                <el-input size="medium" style="margin: 8px 0;" prefix-icon="el-icon-lock" show-password
+                <el-input size="medium" clearable style="margin-top: 30px;" prefix-icon="el-icon-lock" show-password
                           v-model="admin.confirmPassword" placeholder="请确认密码"></el-input>
               </el-form-item>
 
               <div>
                 <el-button class="loginButton" @click="register">注册</el-button>
-                <el-button class="loginButton" style="float: right" @click="resetForm()">重置</el-button>
+                <el-button class="loginButton" style="float: right" @click="resetRegisterForm">重置</el-button>
               </div>
 
             </el-form>
@@ -45,18 +47,19 @@
             <el-form :model="user" :rules="rules" ref="ruleForm" style="width: 300px; height: 250px">
 
               <el-form-item prop="username">
-                <el-input size="medium" style="margin: 10px 0;" prefix-icon="el-icon-user" v-model="user.username"
+                <el-input size="medium" clearable style="margin-top: 30px;" prefix-icon="el-icon-user" v-model="user.username"
                           placeholder="请输入用户名"></el-input>
               </el-form-item>
 
               <el-form-item prop="password">
-                <el-input size="medium" auto-complete="new-password" style="margin: 10px 0;" prefix-icon="el-icon-lock"
+                <el-input size="medium" clearable auto-complete="new-password" style="margin-top: 30px;"
+                          prefix-icon="el-icon-lock"
                           show-password v-model="user.password" placeholder="请输入密码"></el-input>
               </el-form-item>
 
               <div>
                 <el-button class="loginButton" @click="login">登录</el-button>
-                <el-button class="loginButton" style="float: right" @click="resetForm">重置</el-button>
+                <el-button class="loginButton" style="float: right" @click="resetLoginForm">重置</el-button>
               </div>
 
             </el-form>
@@ -92,6 +95,7 @@
           callback()
         }
       }
+
       const validatePassword = (rule, value, callback) => {
         if (value === '') {
           callback(new Error('请输入密码'))
@@ -101,6 +105,15 @@
           callback()
         }
       }
+
+      const validateNickname = (rule, value, callback) => {
+        if (value === '') {
+          callback(new Error('请输入昵称'))
+        } else {
+          callback()
+        }
+      }
+
       return {
         user: {
           username: '',
@@ -122,8 +135,11 @@
           ],
           password: [
             {required: true, validator: validatePassword, trigger: 'blur'}
+          ],
+          nickname: [
+            {required: true, validator: validateNickname, trigger: 'blur'}
           ]
-        }
+        },
       }
     },
     methods: {
@@ -134,24 +150,55 @@
         // this.form.pwd = ''
       },
       login () {
-        this.axios({
-          method: 'post',
-          url: 'http://localhost:9000/user/login',
-          data: {
-            username: this.user.username,
-            password: this.user.password
-          }
-        }).then(res => {
-          if (res.data.code === 200) {
-            this.$router.replace('/')
-          }
-        })
+
+        if (this.user.username === '' && this.user.password === '') {
+          this.$notify.error('请输入账号和密码')
+        } else if (this.user.username === '' && this.user.password !== '') {
+          this.$notify.error('请输入账号')
+        } else if (this.user.username !== '' && this.user.password === '') {
+          this.$notify.error('请输入密码')
+        } else {
+          this.axios({
+            method: 'post',
+            url: 'http://localhost:9000/user/login',
+            data: {
+              username: this.user.username,
+              password: this.user.password
+            }
+          }).then(res => {
+            if (res.data.code === 200) {
+              this.$router.push('/')
+              this.$notify.success("登录成功")
+            }
+          })
+        }
       },
       register () {
-
+        if (this.admin.password !== this.admin.confirmPassword) {
+          this.$notify.error('您输入的两次密码不一致')
+        } else {
+          this.axios({
+            method: 'post',
+            url: 'http://localhost:9000/user/register',
+            data: {
+              username: this.admin.username,
+              nickname: this.admin.nickname,
+              password: this.admin.password,
+              confirmPassword: this.admin.confirmPassword
+            }
+          }).then(res => {
+            if (res.data.code === 200) {
+              this.$notify.success("注册成功")
+              Object.assign(this.$data.admin, this.$options.data().admin)
+            }
+          })
+        }
       },
-      resetForm () {
-
+      resetLoginForm () {
+        Object.assign(this.$data.user, this.$options.data().user)
+      },
+      resetRegisterForm(){
+        Object.assign(this.$data.admin, this.$options.data().admin)
       }
     }
   }
@@ -166,8 +213,8 @@
   }
 
   .contain {
-    width: 50%;
-    height: 50%;
+    width: 650px;
+    height: 450px;
     position: relative;
     top: 50%;
     left: 50%;
@@ -309,6 +356,7 @@
   .loginButton {
     width: 80px;
     height: 40px;
+    margin: 30px auto;
     border-radius: 24px;
     border: none;
     outline: none;
