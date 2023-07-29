@@ -2,27 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e8068929-cc9a-4196-bf2b-cbd5c8b66b4f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/service-user/src/main/java/com/example/mapper/UserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/common.iml" beforeDir="false" afterPath="$PROJECT_DIR$/common/common.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mall.iml" beforeDir="false" afterPath="$PROJECT_DIR$/mall.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-user/service-user.iml" beforeDir="false" afterPath="$PROJECT_DIR$/service-user/service-user.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-user/src/main/java/com/example/UserApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-user/src/main/java/com/example/UserApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-user/src/main/java/com/example/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-user/src/main/java/com/example/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-user/src/main/java/com/example/pojo/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-user/src/main/java/com/example/pojo/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-user/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/service-user/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-user/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/service-user/target/classes/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-user/target/classes/com/example/UserApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/service-user/target/classes/com/example/UserApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-user/target/classes/com/example/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/service-user/target/classes/com/example/controller/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-user/target/classes/com/example/pojo/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/service-user/target/classes/com/example/pojo/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue/src/components/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../vue/src/components/Home.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue/src/components/admin/Login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../vue/src/components/admin/Login.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../vue/src/router/index.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -301,7 +281,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1690647875777" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1690648004218" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../vue" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -366,12 +346,20 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1690470799366</updated>
-      <workItem from="1690470804975" duration="13373000" />
+      <workItem from="1690470804975" duration="13651000" />
     </task>
+    <task id="LOCAL-00001" summary="登录请求与注册请求">
+      <created>1690647993558</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1690647993558</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13373000" />
+    <option name="totallyTimeSpent" value="13651000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -460,6 +448,10 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="登录请求与注册请求" />
+    <option name="LAST_COMMIT_MESSAGE" value="登录请求与注册请求" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/common/pom.xml">
